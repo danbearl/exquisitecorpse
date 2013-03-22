@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'authem'
 gem 'decent_exposure'
 gem 'haml-rails'
 gem 'jbuilder', '~> 1.0.1'
