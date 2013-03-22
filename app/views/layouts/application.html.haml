@@ -1,0 +1,14 @@
+!!!
+%html 
+%head 
+  %title Exquisitecorpse
+  = stylesheet_link_tag "application", "data-turbolinks-track" =>  true
+  = javascript_include_tag "application", "data-turbolinks-track"=>  true
+  = csrf_meta_tags
+
+%body
+  %header
+    - flash.keys.each do |type|
+      %p
+        = flash[type]
+  = yield

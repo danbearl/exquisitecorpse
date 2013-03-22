@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 
+gem 'decent_exposure'
+gem 'haml-rails'
 gem 'jbuilder', '~> 1.0.1'
 gem 'jquery-rails'
 gem 'rails', '4.0.0.beta1'
-gem 'sqlite3'
+gem 'pg'
 gem 'turbolinks'
 
 group :assets do
@@ -15,4 +17,9 @@ end
 group :test do
   gem 'cucumber-rails'
   gem 'rspec-rails'
+  gem 'database_cleaner'
+end
+
+group :development, :test do
+  gem 'pry-rails'
 end
