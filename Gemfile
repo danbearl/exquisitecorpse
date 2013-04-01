@@ -4,8 +4,9 @@ gem 'decent_exposure'
 gem 'haml-rails'
 gem 'jbuilder', '~> 1.0.1'
 gem 'jquery-rails'
-gem 'rails', '4.0.0.beta1'
 gem 'pg'
+gem 'rails', '4.0.0.beta1'
+gem 'thin'
 gem 'turbolinks'
 
 group :assets do
