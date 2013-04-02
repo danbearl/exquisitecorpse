@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt-ruby'
 gem 'decent_exposure'
 gem 'haml-rails'
 gem 'jbuilder', '~> 1.0.1'
@@ -23,4 +24,6 @@ end
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'fabrication'
+  gem 'database_cleaner'
 end

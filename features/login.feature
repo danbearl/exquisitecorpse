@@ -3,8 +3,6 @@ Feature: Login
     Given the following user:
       | email                 | dan@example.com |
       | password              | pass            |
-      | passowrd_confirmation | pass            |
-
 
   Scenario: User logs in
     Given I am on the login page

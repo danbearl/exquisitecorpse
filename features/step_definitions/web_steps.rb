@@ -2,6 +2,10 @@ Given "I am on the home page" do
   visit root_path
 end
 
+Given "I am on the login page" do
+  visit new_user_session_path
+end
+
 When /^I follow "(.*?)"$/ do |link|
   click_link link
 end
