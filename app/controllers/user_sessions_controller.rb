@@ -5,7 +5,7 @@ class UserSessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      redirect_to root_url, notice: "Successfully signed in!"
+      redirect_to root_url, notice: "Successfully logged in!"
     else
       flash.now.alert = "Invalid name or password"
       render "new"

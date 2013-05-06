@@ -6,6 +6,13 @@ Given "I am on the login page" do
   visit new_user_session_path
 end
 
+Given "that user is logged in" do
+  visit "/log_in"
+
+  fill_in 'email', with: @user.email
+  fill_in 'password', with: 'pass'
+end
+
 When /^I follow "(.*?)"$/ do |link|
   click_link link
 end
