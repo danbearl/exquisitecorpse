@@ -7,6 +7,14 @@ Feature: Corpse
       | password_confirmation | pass            |
     And that user is logged in
 
+  Scenario: View a corpse
+    Given 1 corpse
+    And that corpse has the following snippet:
+      | body      | This is some corpse text. |
+      | author_id | 1                         |
+    And I am viewing that corpse
+    Then I should see "This is some corpse text."
+
   Scenario: User starts a new corpse
     Given I am on the home page
     When I follow "New Corpse"
