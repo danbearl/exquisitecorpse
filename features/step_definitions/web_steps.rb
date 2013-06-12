@@ -2,6 +2,10 @@ Given "I am on the home page" do
   visit root_path
 end
 
+Given "I am viewing that corpse" do
+  visit corpse_path(@corpse)
+end
+
 Given "I am on the login page" do
   visit new_user_session_path
 end
@@ -30,5 +34,11 @@ end
 Then /^I should see "(.*?)"$/ do |text|
   within "body" do
     page.should have_content(text)
+  end
+end
+
+Then /^I should not see "(.*?)"$/ do |text|
+  within "body" do
+    page.should_not have_content(text)
   end
 end

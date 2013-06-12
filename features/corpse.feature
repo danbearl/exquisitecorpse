@@ -1,12 +1,5 @@
 Feature: Corpse
 
-  Background:
-    Given the following user:
-      | email                 | dan@example.com |
-      | password              | pass            |
-      | password_confirmation | pass            |
-    And that user is logged in
-
   Scenario: View a corpse
     Given 1 corpse
     And that corpse has the following snippet:
@@ -16,7 +9,11 @@ Feature: Corpse
     Then I should see "This is some corpse text."
 
   Scenario: User starts a new corpse
-    Given I am on the home page
+    Given the following user:
+      | email                 | dan@example.com |
+      | password              | pass            |
+    And that user is logged in
+    And I am on the home page
     When I follow "New Corpse"
     And I fill in the following:
       | Body | There once was a man from nantucket. |

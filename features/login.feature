@@ -11,3 +11,5 @@ Feature: Login
       | Password | pass            |
     And I press "Log In"
     Then I should see "Successfully logged in!"
+    And I should not see "Sign Up"
+    And I should see "New Corpse"
