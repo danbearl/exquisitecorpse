@@ -2,6 +2,10 @@ class CorpsesController < ApplicationController
   expose(:corpses)
   expose(:corpse)
 
+  def new
+    corpse.snippets.build
+  end
+
   def create
     @corpse = Corpse.new
 
