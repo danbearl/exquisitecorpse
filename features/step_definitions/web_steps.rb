@@ -1,5 +1,5 @@
 Given "I am on the home page" do
-  visit root_path
+  visit '/'
 end
 
 Given "I am viewing that corpse" do
@@ -13,8 +13,10 @@ end
 Given "that user is logged in" do
   visit "/log_in"
 
-  fill_in 'email', with: @user.email
-  fill_in 'password', with: 'pass'
+  fill_in 'Email', with: 'dan@example.com'
+  fill_in 'Password', with: 'pass'
+
+  click_button 'Log In'
 end
 
 When /^I follow "(.*?)"$/ do |link|

@@ -1,4 +1,4 @@
-= form_for :corpse do |f|
+= form_for @corpse do |f|
   %fieldset
     = f.fields_for :snippets do |builder|
       = render partial: "snippets/form", locals: { f: builder }

@@ -13,9 +13,25 @@ Feature: Corpse
       | email                 | dan@example.com |
       | password              | pass            |
     And that user is logged in
-    And I am on the home page
     When I follow "New Corpse"
     And I fill in the following:
       | Body | There once was a man from nantucket. |
     And I press "Create Corpse"
     Then I should see "A new corpse has begun to grow."
+
+  Scenario: User adds to an existing corpse
+    Given 1 corpse
+    And that corpse has the following snippet:
+      | body      | This is some corpse text. |
+      | author_id | 1                         |
+    And the following user:
+      | email    | dan@example.com |
+      | password | pass            |
+    And that user is logged in
+    And I am on the home page
+    When I follow "Add To Corpse"
+    And I fill in the following:
+      | Body | Here is some more corpse text. |
+    And I press "Update Corpse"
+    Then I should see "The corpse has grown."
+    And I should see "This is some corpse text. Here is some more corpse text."
