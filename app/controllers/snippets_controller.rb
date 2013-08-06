@@ -1,5 +1,6 @@
 class SnippetsController < ApplicationController
   expose(:snippet, attributes: :snippet_params)
+  expose(:parent) {Corpse.find(params[:corpse_id])}
 
   def create
     snippet.author_id = current_user.id
