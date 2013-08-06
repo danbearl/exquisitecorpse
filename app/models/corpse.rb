@@ -14,4 +14,13 @@ class Corpse < ActiveRecord::Base
     return text
   end
 
+  def last_one_hundred
+
+    if body.length < 100
+      return body
+    end
+
+    body[body.length - 100, body.length - 1]
+  end
+
 end
