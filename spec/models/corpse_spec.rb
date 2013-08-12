@@ -28,4 +28,10 @@ describe Corpse do
 
     end
   end
+
+  describe "#check_for_closure" do
+    it "closes itself once its body has reached 3,000 characters" do
+
+    end
+  end
 end
