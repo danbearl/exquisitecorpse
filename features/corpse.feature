@@ -15,7 +15,7 @@ Feature: Corpse
     And that user is logged in
     When I follow "New Corpse"
     And I fill in the following:
-      | Body | There once was a man from nantucket. |
+      | Enter thy text: | There once was a man from nantucket. |
     And I press "Create Corpse"
     Then I should see "A new corpse has begun to grow."
 
