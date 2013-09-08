@@ -31,7 +31,21 @@ describe Corpse do
 
   describe "#check_for_closure" do
     it "closes itself once its body has reached 3,000 characters" do
+      corpse = Corpse.create
 
+      snippet_str = ''
+
+      300.times do
+        snippet_str << 'a'
+      end
+
+      11.times do
+        corpse.snippets.build(body: snippet_str)
+      end
+      
+      corpse.save!
+
+      corpse.closed.should eq(true)
     end
   end
 end
