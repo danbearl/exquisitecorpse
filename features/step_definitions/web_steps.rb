@@ -19,6 +19,19 @@ Given "that user is logged in" do
   click_button 'Log In'
 end
 
+Given "that corpse is almost full" do
+  a = ""
+  299.times do
+    a << 'a'
+  end
+
+  10.times do
+    @corpse.snippets.build(body: a)
+  end
+
+  @corpse.save!
+end
+
 When /^I follow "(.*?)"$/ do |link|
   click_link link
 end

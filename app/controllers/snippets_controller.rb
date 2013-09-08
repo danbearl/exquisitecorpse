@@ -7,7 +7,12 @@ class SnippetsController < ApplicationController
     snippet.corpse_id = params[:snippet][:corpse_id]
 
     if snippet.save
-      redirect_to corpse_path(snippet.corpse_id), notice: "The corpse has grown."
+      snippet.corpse.save!
+      if snippet.corpse.closed
+        redirect_to corpse_path(snippet.corpse_id), notice: "The corpse is now complete."
+      else
+        redirect_to :root, notice: "The corpse has grown."
+      end
     else
       redirect_to root_path, error: "You broke it."
     end
