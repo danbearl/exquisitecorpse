@@ -3,9 +3,14 @@ Exquisitecorpse::Application.routes.draw do
   get 'log_out' => 'user_sessions#destroy', as: 'log_out'
 
   root to: 'pages#index'
-  resources :users, only: [:new, :create]
+
+  resources :users, only: [:new, :create] do
+    resource :profile
+  end
+
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :snippets
+
   resources :corpses do
     resources :snippets
   end
