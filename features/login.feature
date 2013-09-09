@@ -1,8 +1,9 @@
 Feature: Login
   Background: User exists
     Given the following user:
-      | email                 | dan@example.com |
-      | password              | pass            |
+      | email    | dan@example.com |
+      | password | pass            |
+      | name     | Dan             |
 
   Scenario: User logs in
     Given I am on the login page

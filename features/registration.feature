@@ -4,6 +4,7 @@ Feature: Registration
 		When I follow "Sign Up"
 		And I fill in the following:
 			| Email                      | user@example.com |
+      | Name                       | Dan              |
 			| user_password              | pass             |
 			| user_password_confirmation | pass             |
 		And I press "Join!"

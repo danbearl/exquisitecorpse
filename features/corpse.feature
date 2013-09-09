@@ -10,8 +10,9 @@ Feature: Corpse
 
   Scenario: User starts a new corpse
     Given the following user:
-      | email                 | dan@example.com |
-      | password              | pass            |
+      | email    | dan@example.com |
+      | password | pass            |
+      | name     | Dan             |
     And that user is logged in
     When I follow "New Corpse"
     And I fill in the following:
@@ -27,6 +28,7 @@ Feature: Corpse
     And the following user:
       | email    | dan@example.com |
       | password | pass            |
+      | name     | Dan             |
     And that user is logged in
     And I am on the home page
     When I follow "Add To Corpse"
@@ -41,6 +43,7 @@ Feature: Corpse
     And the following user:
       | email    | dan@example.com |
       | password | pass            |
+      | name     | Dan             |
     And that user is logged in
     And I am on the home page
     When I follow "Add To Corpse"
