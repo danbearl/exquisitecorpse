@@ -11,4 +11,23 @@
     - flash.keys.each do |type|
       %p
         = flash[type]
+  .top-nav
+    %ul
+    - unless current_user
+      %li
+        = link_to "Sign Up", new_user_path
+      %li
+        = link_to "Log In", '/log_in'
+
+    - if current_user
+      %li
+        = link_to "New Corpse", new_corpse_path
+      -if !random_corpse.nil?
+        %li
+          = link_to "Add To Corpse", new_corpse_snippet_path(random_corpse.id)
+      %li
+        = link_to "Log Out", '/log_out'
+      %li
+        = link_to "Profile", user_profile_path(current_user.id)
+
   = yield
