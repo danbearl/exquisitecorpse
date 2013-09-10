@@ -4,6 +4,7 @@ Feature: Profile
       | email    | dan@example.com |
       | name     | Dan             |
       | password | pass            |
+    And that user has 1 profile
     And that user is logged in
     And I am on the home page
     When I follow "Profile"

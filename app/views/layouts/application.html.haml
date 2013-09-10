@@ -28,6 +28,6 @@
       %li
         = link_to "Log Out", '/log_out'
       %li
-        = link_to "Profile", user_profile_path(current_user.id)
+        = link_to "Profile", profile_path(current_user.profile.id)
 
   = yield
