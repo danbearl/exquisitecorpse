@@ -15,4 +15,23 @@ class User < ActiveRecord::Base
   def self.authenticate(email, password)
     find_by_email(email).try(:authenticate, password)
   end
+
+  def add_friend(friend)
+    self.friends << friend
+    save!
+  end
+
+  def remove_friend(friend)
+    self.friends.delete(friend)
+    save!
+  end
+
+  def list_friends
+    friends = []
+    self.friends.each do |f|
+      friends << f.name
+    end
+
+    return friends.join(", ")
+  end
 end
