@@ -1,8 +1,9 @@
 %h1
   = "#{profile.user.name}'s Profile"
 
-%h2 About
+= link_to "Edit Profile", edit_profile_path(profile.id)
 
+%h2 About
 = profile.about
 
 %h2 Contributions
