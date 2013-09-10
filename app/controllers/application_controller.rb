@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  expose(:random_corpse) { Corpse.all.sample }
+  expose(:random_corpse) { Corpse.where(closed: nil).sample }
   protect_from_forgery with: :exception
   
   helper_method :current_user
