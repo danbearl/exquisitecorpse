@@ -1,0 +1,16 @@
+%h1
+  = "#{profile.user.name}'s Profile"
+
+%h2 About
+
+= profile.about
+
+%h2 Contributions
+
+- profile.user.snippets.each do |snippet|
+  = snippet.body
+  %hr
+
+%h2 Friends
+
+- profile.user.list_friends
