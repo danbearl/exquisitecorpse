@@ -32,8 +32,33 @@ Given "that corpse is almost full" do
   @corpse.save!
 end
 
+Given "that corpse is full" do
+  a = ""
+  299.times do
+    a << 'a'
+  end
+
+  11.times do
+    @corpse.snippets.build(body: a)
+  end
+
+  @corpse.save!
+end
+
+Given "that user has a friend" do
+  @user.friends << Fabricate(:friend, name: 'Laura', email: 'laura@example.com', password: 'pass' )
+end
+
 When /^I follow "(.*?)"$/ do |link|
   click_link link
+end
+
+When /^I visit "(.*?)"$/ do |url|
+  visit url
+end
+
+When "I visit that friend's profile" do 
+  visit profile_path(@user.friends.first.profile.id)
 end
 
 When "I fill in the following:" do |table|

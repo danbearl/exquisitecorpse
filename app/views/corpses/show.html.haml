@@ -1,2 +1,8 @@
 %article
+  %h1= "Corpse ##{corpse.id}"
+
+  %ul
+    -corpse.authors.uniq.each do |author|
+      %li= link_to author.name, author.profile
+
   = corpse.body

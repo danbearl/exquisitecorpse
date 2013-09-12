@@ -48,4 +48,22 @@ describe Corpse do
       corpse.closed.should eq(true)
     end
   end
+
+  describe "#authors" do
+    it 'returns a collection of the authors who contributed to the corpse' do
+      corpse = Corpse.create
+
+      snippet_str = ''
+      300.times do
+        snippet_str << 'a'
+      end
+
+      user = Fabricate(:user, name: "Dan", email: "dan@example.com", password: "pass")
+      corpse.snippets.build(body:snippet_str, author_id: user.id)
+
+      corpse.save!
+
+      corpse.authors.first.should eq(user)
+    end
+  end
 end
