@@ -1,6 +1,7 @@
 class Corpse < ActiveRecord::Base
 
   has_many :snippets
+  has_many :authors, through: :snippets
   before_save :check_for_closure
 
   accepts_nested_attributes_for :snippets, reject_if: lambda { |a| a[:body].blank? }, allow_destroy: true

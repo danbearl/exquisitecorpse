@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
    expose(:user)
    expose(:created_user) { User.new(user_params) }
+   expose(:friend) { User.find(params[:friend_id]) }
 
    def create
      created_user.build_profile
@@ -10,6 +11,18 @@ class UsersController < ApplicationController
      else
        render :new, notice: "Something went wrong!"
      end
+   end
+
+   def add_friend
+     current_user.add_friend(friend)
+
+     redirect_to profile_path(friend.id), notice: "Friend Added"
+   end
+
+   def remove_friend
+     current_user.remove_friend(friend)
+
+     redirect_to profile_path(friend.id), notice: "Friend Removed"
    end
 
    private
