@@ -16,13 +16,13 @@ class UsersController < ApplicationController
    def add_friend
      current_user.add_friend(friend)
 
-     redirect_to profile_path(friend.id), notice: "Friend Added"
+     redirect_to profile_path(friend.profile.id), notice: "Friend Added"
    end
 
    def remove_friend
      current_user.remove_friend(friend)
 
-     redirect_to profile_path(friend.id), notice: "Friend Removed"
+     redirect_to profile_path(friend.profile.id), notice: "Friend Removed"
    end
 
    private
