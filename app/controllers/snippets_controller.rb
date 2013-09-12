@@ -1,4 +1,6 @@
 class SnippetsController < ApplicationController
+  before_filter :skip_closed_corpses, only: [:new, :create]
+
   expose(:snippet, attributes: :snippet_params)
   expose(:parent) {Corpse.find(params[:corpse_id])}
 
@@ -22,5 +24,12 @@ class SnippetsController < ApplicationController
 
   def snippet_params
     params.require(:snippet).permit(:body)
+  end
+
+  def skip_closed_corpses
+    id = params[:corpse_id] ? params[:corpse_id] : params[:snippet][:corpse_id]
+    if Corpse.find(id).closed
+      redirect_to :root
+    end
   end
 end

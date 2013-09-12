@@ -1,6 +1,9 @@
 class CorpsesController < ApplicationController
+  before_filter :require_user, only: [:new, :create]
+
   expose(:corpses)
   expose(:corpse, attributes: :corpse_params)
+  expose(:completed_corpses) { Corpse.where(closed: true) }
 
   def new
     corpse.snippets.build

@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_filter :require_owner, only: [:edit, :update]
   expose(:profile)
 
   def update
@@ -13,6 +14,12 @@ class ProfilesController < ApplicationController
 
   def profile_params
     profile_params = params.require(:profile).permit(:about)
+  end
+
+  def require_owner
+    unless current_user.id == profile.user_id
+      redirect_to :root
+    end
   end
 
 end
