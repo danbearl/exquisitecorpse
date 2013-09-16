@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+
+  $('#snippet_body').on('keyup blur', function() {
+    var maxlength = $(this).attr('maxlength');
+    var val = $(this).val();
+
+    if (val.length > maxlength) {
+      $(this).val(val.slice(0,maxlength));
+    }
+  });
+
+});
