@@ -1,7 +1,9 @@
 %p
   = parent.last_one_hundred
-= form_for snippet do |f|
-  = render partial: "form", locals: { f: f }
-  = f.hidden_field :corpse_id, value: params[:corpse_id]
+  
+%fieldset
+  = form_for snippet do |f|
+    = render partial: "form", locals: { f: f }
+    = f.hidden_field :corpse_id, value: params[:corpse_id]
 
-  = f.submit "Update Corpse"
+    = f.submit "Update Corpse"

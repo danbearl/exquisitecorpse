@@ -1,18 +1,25 @@
 %h1 The Morgue
+= link_to "Newest", morgue_path
+|
+= link_to "Most Popular", morgue_path(mode: 'popular')
 
-- completed_corpses.each do |corpse|
-  %h2
-    = "Corpse ##{corpse.id}"
-  = corpse.body[0..500]
+- scoped_corpses.each do |corpse|
+  .corpse
+    %h2
+      = "Corpse ##{corpse.id}"
+    = corpse.body[0..500]
 
-  %br
+    %br
+    %br
 
-  %ul
-    - corpse.authors.uniq.each do |author|
-      %li
-        = link_to author.name, author.profile
-    
-  %br
-  = link_to "View full corpse", corpse
+    #users-list
+      Contributors:
+      %ul
+        - corpse.authors.uniq.each do |author|
+          %li
+            = link_to author.name, author.profile
+      
+    %br
+    = link_to "View full corpse", corpse
 
-  %hr
+    %hr

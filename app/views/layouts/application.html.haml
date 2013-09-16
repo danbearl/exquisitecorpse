@@ -7,32 +7,33 @@
   = csrf_meta_tags
 
 %body
-  %header
-    - flash.keys.each do |type|
-      %p
-        = flash[type]
-  .top-nav
-    %ul
-      %li
-        = link_to "Home", :root
-      %li
-        = link_to "Morgue", '/morgue'
+  .container
+    %header
+      - flash.keys.each do |type|
+        %p
+          = flash[type]
+    #navbar
+      %ul
+        %li
+          = link_to "Home", :root
+        %li
+          = link_to "Morgue", '/morgue'
 
-      - unless current_user
-        %li
-          = link_to "Sign Up", new_user_path
-        %li
-          = link_to "Log In", '/log_in'
-
-      - if current_user
-        %li
-          = link_to "New Corpse", new_corpse_path
-        -if !random_corpse.nil?
+        - unless current_user
           %li
-            = link_to "Add To Corpse", new_corpse_snippet_path(random_corpse.id)
-        %li
-          = link_to "Log Out", '/log_out'
-        %li
-          = link_to "Profile", profile_path(current_user.profile.id)
+            = link_to "Sign Up", new_user_path
+          %li
+            = link_to "Log In", '/log_in'
 
-  = yield
+        - if current_user
+          %li
+            = link_to "New Corpse", new_corpse_path
+          -if !random_corpse.nil?
+            %li
+              = link_to "Add To Corpse", new_corpse_snippet_path(random_corpse.id)
+          %li
+            = link_to "Log Out", '/log_out'
+          %li
+            = link_to "Profile", profile_path(current_user.profile.id)
+
+    = yield

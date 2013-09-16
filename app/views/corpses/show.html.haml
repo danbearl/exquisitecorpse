@@ -1,8 +1,24 @@
 %article
-  %h1= "Corpse ##{corpse.id}"
+  .corpse
+    %h1= "Corpse ##{corpse.id}"
 
-  %ul
-    -corpse.authors.uniq.each do |author|
-      %li= link_to author.name, author.profile
+    %p.small
+      = "Liked by #{corpse.likes.length} living souls"
 
-  = corpse.body
+    #like-button
+      - if current_user
+        - if like
+          = link_to "Unlike", like_path(like.id, corpse_id: corpse.id), method: :delete
+        - else
+          = link_to "Like", new_like_path(user_id: current_user.id, corpse_id: corpse.id)
+
+    %br
+    %br
+
+    #authors-list
+      Contributors
+      %ul
+        -corpse.authors.uniq.each do |author|
+          %li.small= link_to author.name, author.profile
+
+    = corpse.body
