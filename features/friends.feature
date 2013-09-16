@@ -4,16 +4,14 @@ Feature: Friends
       | email    | dan@example.com |
       | name     | Dan             |
       | password | pass            |
+    And that user is logged in
     And the following user:
       | email    | laura@example.com |
       | name     | Laura             |
       | password | pass              |
-    And that user is logged in
-    And I am on the home page
-    When I visit "/profiles/1/"
-    And I follow "Add Friend"
+    And I am viewing that user's profile
+    When I follow "Add Friend"
     Then I should see "Friend Added"
-    And I should see "Dan"
       
   Scenario: A user removes a friend
     Given the following user:

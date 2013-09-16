@@ -1,8 +1,11 @@
 class Corpse < ActiveRecord::Base
 
+  has_many :likes
   has_many :snippets
   has_many :authors, through: :snippets
   before_save :check_for_closure
+
+  default_scope { order('created_at DESC') }
 
   accepts_nested_attributes_for :snippets, reject_if: lambda { |a| a[:body].blank? }, allow_destroy: true
 

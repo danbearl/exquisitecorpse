@@ -49,6 +49,14 @@ Given "that user has a friend" do
   @user.friends << Fabricate(:friend, name: 'Laura', email: 'laura@example.com', password: 'pass' )
 end
 
+Given "I am viewing that user's profile" do
+  visit profile_path(@user.profile.id)
+end
+
+Given "that user likes that corpse" do
+  Fabricate(:like, user_id: @user.id, corpse_id: @corpse.id )
+end
+
 When /^I follow "(.*?)"$/ do |link|
   click_link link
 end

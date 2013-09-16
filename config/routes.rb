@@ -14,6 +14,7 @@ Exquisitecorpse::Application.routes.draw do
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :snippets
   resources :profiles
+  resources :likes
 
   resources :corpses do
     resources :snippets

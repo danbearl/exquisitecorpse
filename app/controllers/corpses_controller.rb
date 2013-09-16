@@ -4,6 +4,9 @@ class CorpsesController < ApplicationController
   expose(:corpses)
   expose(:corpse, attributes: :corpse_params)
   expose(:completed_corpses) { Corpse.where(closed: true) }
+  expose(:popular_corpses) { completed_corpses.sort { |a, b| a.likes.length <=> b.likes.length }}
+  expose(:like) { Like.where('user_id = ? AND corpse_id = ?', current_user.id, corpse.id).first }
+  expose(:scoped_corpses) { params[:mode] == 'popular' ? popular_corpses.reverse : completed_corpses }
 
   def new
     corpse.snippets.build
@@ -19,7 +22,6 @@ class CorpsesController < ApplicationController
       redirect_to root_path, error: "You broke it."
     end
   end
-
 
   private
 
