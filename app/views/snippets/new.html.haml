@@ -7,3 +7,6 @@
     = f.hidden_field :corpse_id, value: params[:corpse_id]
 
     = f.submit "Update Corpse"
+
+%p
+  = "The current corpse progress: #{parent.body.length}/3,000"
