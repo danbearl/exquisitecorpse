@@ -1,5 +1,14 @@
 class ApplicationController < ActionController::Base
-  expose(:random_corpse) { Corpse.where(closed: nil).sample }
+  expose(:random_corpse) do 
+    corpses = []
+    Corpse.where(closed: nil).each do |corpse|
+      unless corpse.snippets.last.author_id == current_user.id
+        corpses << corpse
+      end
+    end
+    corpses.sample
+  end
+
   protect_from_forgery with: :exception
   
   helper_method :current_user

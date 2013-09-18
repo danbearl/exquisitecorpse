@@ -4,6 +4,12 @@ class SnippetsController < ApplicationController
   expose(:snippet, attributes: :snippet_params)
   expose(:parent) {Corpse.find(params[:corpse_id])}
 
+  def new
+    if parent.snippets.last.author_id == current_user.id
+      redirect_to :root, notice: "You can't contribute to the same corpse two times consecutively. Try starting a new one if none are available!"
+    end
+  end
+
   def create
     snippet.author_id = current_user.id
     snippet.corpse_id = params[:snippet][:corpse_id]

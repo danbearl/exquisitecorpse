@@ -28,7 +28,7 @@
         - if current_user
           %li
             = link_to "New Corpse", new_corpse_path
-          -if !random_corpse.nil?
+          - unless random_corpse.nil?
             %li
               = link_to "Add To Corpse", new_corpse_snippet_path(random_corpse.id)
           %li
