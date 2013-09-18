@@ -3,7 +3,7 @@
 %ul
   - unread_notifications.each do |note|
     %li
-      = note.message
+      = raw(note.message)
       |
       = link_to "Delete", note, method: :delete
 
@@ -12,6 +12,6 @@
 %ul
   - read_notifications.each do |note|
     %li
-      = note.message
+      = raw(note.message)
       |
       = link_to "Delete", note, method: :delete

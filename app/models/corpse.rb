@@ -35,7 +35,7 @@ class Corpse < ActiveRecord::Base
       self.closed = true
 
       self.authors.uniq.each do |author|
-        Notifier.notify(user_id: author.id, message: "Corpse ##{self.id}, to which you contributed, is now complete.")
+        Notifier.notify(user_id: author.id, message: "<a href='corpses/#{self.id}'>Corpse ##{self.id}</a>, to which you contributed, is now complete.")
       end
     end
   end
