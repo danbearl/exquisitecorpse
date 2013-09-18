@@ -5,7 +5,7 @@ class Corpse < ActiveRecord::Base
   has_many :authors, through: :snippets
   before_save :check_for_closure
 
-  default_scope { order('created_at DESC') }
+  default_scope { order('updated_at DESC') }
 
   accepts_nested_attributes_for :snippets, reject_if: lambda { |a| a[:body].blank? }, allow_destroy: true
 
