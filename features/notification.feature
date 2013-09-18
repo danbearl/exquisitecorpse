@@ -3,13 +3,13 @@ Feature: Notifications
     Given 1 corpse
     And that corpse is almost full
     And the following user:
-      | name     | Dan           |
-      | email    | dan@gmail.com |
-      | password | pass          |
+      | email    | dan@example.com |
+      | password | pass            |
+      | name     | Dan             |
     And that user is logged in
     And I am on the home page
     When I follow "Add To Corpse"
-    And I enter the following:
+    And I fill in the following:
       | Enter thy text: | abcdefghijklmnopqrstuvwxyz |
     And I press "Update Corpse"
     Then I should see "1 new notification"
