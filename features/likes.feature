@@ -6,6 +6,9 @@ Feature: Likes
       | password | pass            |
     And that user is logged in
     And 1 corpse
+    And that corpse has the following snippet:
+      | body      | Here is some meaningful text. |
+      | author_id | 1                             |
     And I am viewing that corpse
     When I follow "Like"
     Then I should see "Unlike"
@@ -17,6 +20,9 @@ Feature: Likes
       | password | pass            |
     And that user is logged in
     And 1 corpse
+    And that corpse has the following snippet:
+      | body      | Here is some meaningful text. |
+      | author_id | 1                             |
     And that user likes that corpse
     And I am viewing that corpse
     When I follow "Unlike"

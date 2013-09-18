@@ -24,7 +24,7 @@ Feature: Corpse
     Given 1 corpse
     And that corpse has the following snippet:
       | body      | This is some corpse text. |
-      | author_id | 1                         |
+      | author_id | 2                         |
     And the following user:
       | email    | dan@example.com |
       | password | pass            |
