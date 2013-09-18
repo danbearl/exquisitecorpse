@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   expose(:random_corpse) do 
     corpses = []
     Corpse.where(closed: nil).each do |corpse|
-      unless corpse.snippets.last.author_id == current_user.id
+      unless corpse.snippets.order('created_at DESC').first.author_id == current_user.id
         corpses << corpse
       end
     end
