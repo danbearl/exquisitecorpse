@@ -1,0 +1,17 @@
+%h1 New notifications:
+
+%ul
+  - unread_notifications.each do |note|
+    %li
+      = note.message
+      |
+      = link_to "Delete", note, method: :delete
+
+%h1 Old notifications:
+
+%ul
+  - read_notifications.each do |note|
+    %li
+      = note.message
+      |
+      = link_to "Delete", note, method: :delete

@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
    def add_friend
      current_user.add_friend(friend)
+     Notifier.notify(user_id: friend.id, message: "<a href='profiles/#{current_user.profile.id}'>#{current_user.name}</a> added you as a friend!")
 
      redirect_to profile_path(friend.profile.id), notice: "Friend Added"
    end

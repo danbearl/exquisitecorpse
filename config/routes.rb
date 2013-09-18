@@ -15,6 +15,7 @@ Exquisitecorpse::Application.routes.draw do
   resources :snippets
   resources :profiles
   resources :likes
+  resources :notifications
 
   resources :corpses do
     resources :snippets

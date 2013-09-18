@@ -34,6 +34,10 @@ class Corpse < ActiveRecord::Base
     if body.length > 3000
       self.closed = true
     end
+
+    self.authors.each do |author|
+      Notifier.notify(user_id: author.id, message: "Corpse ##{self.id}, to which you contributed, is now complete.")
+    end
   end
 
 end

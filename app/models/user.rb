@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :likes
   has_many :snippets, foreign_key: 'author_id'
+  has_many :notifications
   has_one :profile
   has_and_belongs_to_many :friends, 
     class_name: 'User', 

@@ -36,4 +36,8 @@
           %li
             = link_to "Profile", profile_path(current_user.profile.id)
 
+      - if current_user
+        - if unread_notifications.length > 0
+          %p.small= link_to "You have #{pluralize(unread_notifications.length, "new notification")}.", notifications_path
+
     = yield
