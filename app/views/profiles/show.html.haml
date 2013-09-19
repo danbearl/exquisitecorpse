@@ -1,14 +1,15 @@
 %h1
   = "#{profile.user.name}'s Profile"
 
-- if current_user.id == profile.user_id
+- if current_user && current_user.id == profile.user_id
   = link_to "Edit Profile", edit_profile_path(profile.id)
 
-- unless current_user.id == profile.user_id
-  - unless current_user.friends.include? profile.user
-    = link_to "Add Friend", add_friend_path(friend_id: profile.user.id)
-  -else
-    = link_to "Remove Friend", remove_friend_path(friend_id: profile.user.id)
+- if current_user
+  - unless current_user.id == profile.user_id
+    - unless current_user.friends.include? profile.user
+      = link_to "Add Friend", add_friend_path(friend_id: profile.user.id)
+    -else
+      = link_to "Remove Friend", remove_friend_path(friend_id: profile.user.id)
 
 %h2 About
 = profile.about
