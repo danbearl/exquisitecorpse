@@ -1,0 +1,14 @@
+%h1 All the news that fit to something something
+
+- if current_user && current_user.admin
+  = link_to "New Post", new_post_path
+
+- posts.each do |post|
+  .post
+    %p.post-title= post.title
+    %p.post-date= post.created_at.to_formatted_s(:long)
+    %p.post-body= post.body
+
+    - if current_user && current_user.admin
+      = link_to "Delete", post, method: :delete, confirmation: "Are you sure? There is no undo."
+    
