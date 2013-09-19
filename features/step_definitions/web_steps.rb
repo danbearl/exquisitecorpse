@@ -57,6 +57,10 @@ Given "that user likes that corpse" do
   Fabricate(:like, user_id: @user.id, corpse_id: @corpse.id )
 end
 
+Given "I am on the news page" do
+  visit posts_path
+end
+
 When /^I follow "(.*?)"$/ do |link|
   click_link link
 end
