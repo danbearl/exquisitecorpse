@@ -70,6 +70,10 @@ ul {
   overflow-wrap: break-word;
 }
 
+.center {
+  text-align: center;
+}
+
 .small {
   font-size: .75em;
 }

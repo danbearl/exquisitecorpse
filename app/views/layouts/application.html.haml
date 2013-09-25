@@ -43,3 +43,8 @@
           %p.small= link_to "You have #{pluralize(unread_notifications.length, "new notification")}.", notifications_path
 
     = yield
+
+    %footer
+      .center
+        %p.small
+          Made with love.
