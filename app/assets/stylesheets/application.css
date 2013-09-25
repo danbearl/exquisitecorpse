@@ -47,6 +47,24 @@ ul {
   margin-right: auto;
 }
 
+.column {
+  float: left;
+  width: 260px;
+}
+
+.column-left {
+  margin-right: 5px;
+}
+
+.column-center {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.column-right {
+  margin-left: 5px;
+}
+
 .corpse {
   word-wrap: break-word;
   overflow-wrap: break-word;

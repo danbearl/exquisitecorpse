@@ -1,4 +1,6 @@
-%h1 Welcome to the Mortuary
+%h1 Le cedavre exquis boira le vin nouveau
+
+%p "The exquisite corpse shall drink the new wine."
 
 %p Within this site you will find the means to collaboratively write short stories with the help of complete strangers. 
 
@@ -6,3 +8,32 @@
 = link_to "(Wikipedia Article)", "http://en.wikipedia.org/wiki/Exquisite_corpse"
 
 %p Here's how it works: Create an account. Then start a new corpse, or contribute to an existing one. Each time you add to a corpse, you'll be prompted with the last few words of the story so far. You can then add up too 300 characters worth of text to be appended to the corpse. Once the corpse has reached a length of at least 3,000 characters, it is forever frozen, and placed on display in the Morgue. 
+
+.column.column-left
+  %h2 Recent Corpses
+  - recent_corpses.each do |corpse|
+    .corpse
+      = "Corpse ##{corpse.id}"
+      %br
+      = corpse.body[0..150]
+      = link_to "...more", corpse
+      %hr
+
+.column.column-center
+  %h2 Latest Snippets
+  - recent_snippets.each do |snippet|
+    .corpse
+      = snippet.body
+      %br
+      = link_to "by #{snippet.author.name}", snippet.author.profile
+      %hr
+
+.column.column-right
+  %h2 News
+  - recent_posts.each do |post|
+    .corpse
+      = post.title
+      %br
+      = post.body[0..150]
+      = link_to "...more", posts_path
+      %hr
