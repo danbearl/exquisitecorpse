@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'rails', '4.0.0.beta1'
 gem 'rdiscount'
+gem 'redcarpet'
 gem 'thin'
 gem 'turbolinks'
 
