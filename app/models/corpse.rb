@@ -1,8 +1,9 @@
 class Corpse < ActiveRecord::Base
 
+  has_many :authors, through: :snippets
+  has_many :comments
   has_many :likes
   has_many :snippets
-  has_many :authors, through: :snippets
   before_save :check_for_closure
 
   default_scope { order('updated_at DESC') }

@@ -22,3 +22,23 @@
           %li.small= link_to author.name, author.profile
 
     = corpse.body
+
+  .comments
+
+    %hr
+
+    -corpse.comments.each do |comment|
+      = comment.body
+      %br
+      %p.small= comment.author.name
+      %br
+
+    -if current_user
+
+      = form_for [corpse, corpse.comments.build] do |f|
+        = f.label :Body, "Comment if you like:"
+        %br
+        = f.text_area :body, rows: '10', cols: '30'
+        %br
+        = f.submit "Comment"
+

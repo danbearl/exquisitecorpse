@@ -26,7 +26,7 @@ Given "that corpse is almost full" do
   end
 
   10.times do
-    @corpse.snippets.build(body: a)
+    @corpse.snippets.build(body: a, author_id: 1)
   end
 
   @corpse.save!

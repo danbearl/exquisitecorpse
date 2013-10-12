@@ -20,5 +20,6 @@ Exquisitecorpse::Application.routes.draw do
 
   resources :corpses do
     resources :snippets
+    resources :comments
   end
 end

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  has_many :comments, foreign_key: 'author_id'
   has_many :likes
   has_many :snippets, foreign_key: 'author_id'
   has_one :profile
