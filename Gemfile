@@ -7,6 +7,7 @@ gem 'jbuilder', '~> 1.0.1'
 gem 'jquery-rails'
 gem 'pg'
 gem 'rails', '4.0.0.beta1'
+gem 'rdiscount'
 gem 'thin'
 gem 'turbolinks'
 

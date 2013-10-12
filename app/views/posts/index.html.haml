@@ -7,7 +7,9 @@
   .post
     %p.post-title= post.title
     %p.post-date= post.created_at.to_formatted_s(:long)
-    %p.post-body= post.body
+    %p.post-body
+      :markdown
+        #{post.body}
 
     - if current_user && current_user.admin
       = link_to "Delete", post, method: :delete, confirmation: "Are you sure? There is no undo."
