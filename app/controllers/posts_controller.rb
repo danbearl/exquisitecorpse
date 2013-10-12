@@ -10,6 +10,14 @@ class PostsController < ApplicationController
       render :new, notice: "Something went wrong!"
     end
   end
+  
+  def update
+    if post.save
+      redirect_to posts_path, notice: "Post updated."
+    else
+      render edit
+    end
+  end
 
   def destroy
     post.delete
