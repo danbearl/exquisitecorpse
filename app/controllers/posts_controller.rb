@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
   
   def update
-    if post.save
+    if post.update(post_params)
       redirect_to posts_path, notice: "Post updated."
     else
       render edit

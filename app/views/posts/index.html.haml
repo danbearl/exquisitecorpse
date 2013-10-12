@@ -12,5 +12,6 @@
         #{post.body}
 
     - if current_user && current_user.admin
+      = link_to "Update", edit_post_path(post)
+      |
       = link_to "Delete", post, method: :delete, confirmation: "Are you sure? There is no undo."
-    
