@@ -13,7 +13,7 @@
   %h2 Recent Corpses
   - recent_corpses.each do |corpse|
     .corpse
-      = "Corpse ##{corpse.id}"
+      %strong= "Corpse ##{corpse.id}"
       %br
       = corpse.body[0..150]
       = link_to "...more", corpse
@@ -32,7 +32,7 @@
   %h2 News
   - recent_posts.each do |post|
     .corpse
-      = post.title
+      %strong= post.title
       %br
       = post.body[0..150]
       = link_to "...more", posts_path

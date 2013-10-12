@@ -5,8 +5,8 @@
 
 - posts.each do |post|
   .post
-    %p.post-title= post.title
-    %p.post-date= post.created_at.to_formatted_s(:long)
+    %h3= post.title
+    %p.small= post.created_at.to_formatted_s(:long)
     %p.post-body
       :markdown
         #{post.body}
