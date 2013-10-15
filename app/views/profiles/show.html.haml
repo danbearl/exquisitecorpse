@@ -19,7 +19,8 @@
   = link_to friend.name, profile_path(friend.profile)
 
 %h2 Contributions
-- profile.user.snippets.each do |snippet|
+- snippets.each do |snippet|
   = snippet.body
   %hr
 
+= will_paginate snippets
