@@ -3,7 +3,7 @@ class CorpsesController < ApplicationController
 
   expose(:corpses)
   expose(:corpse, attributes: :corpse_params)
-  expose(:completed_corpses) { Corpse.where(closed: true) }
+  expose(:completed_corpses) { corpses.where(closed: true).paginate(page: params[:page]) }
   expose(:popular_corpses) { completed_corpses.sort { |a, b| a.likes.length <=> b.likes.length }}
   expose(:like) { Like.where('user_id = ? AND corpse_id = ?', current_user.id, corpse.id).first }
   expose(:scoped_corpses) { params[:mode] == 'popular' ? popular_corpses.reverse : completed_corpses }
