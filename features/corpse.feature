@@ -10,9 +10,10 @@ Feature: Corpse
 
   Scenario: User starts a new corpse
     Given the following user:
-      | email    | dan@example.com |
-      | password | pass            |
-      | name     | Dan             |
+      | email                 | dan@example.com |
+      | password              | pass            |
+      | password_confirmation | pass            |
+      | name                  | Dan             |
     And that user is logged in
     When I follow "New Corpse"
     And I fill in the following:
@@ -24,11 +25,13 @@ Feature: Corpse
     Given 1 corpse
     And that corpse has the following snippet:
       | body      | This is some corpse text. |
-      | author_id | 2                         |
+      | author_id | 1                         |
+    And 1 user
     And the following user:
-      | email    | dan@example.com |
-      | password | pass            |
-      | name     | Dan             |
+      | email                 | dan@example.com |
+      | password              | pass            |
+      | password_confirmation | pass            |
+      | name                  | Dan             |
     And that user is logged in
     And I am on the home page
     When I follow "Add To Corpse"
@@ -40,10 +43,12 @@ Feature: Corpse
   Scenario: Corpse closes itself once body length >= 3,000
     Given 1 corpse
     And that corpse is almost full
+    And 1 user
     And the following user:
-      | email    | dan@example.com |
-      | password | pass            |
-      | name     | Dan             |
+      | email                 | dan@example.com |
+      | password              | pass            |
+      | password_confirmation | pass            |
+      | name                  | Dan             |
     And that user is logged in
     And I am on the home page
     When I follow "Add To Corpse"

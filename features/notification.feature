@@ -2,6 +2,7 @@ Feature: Notifications
   Scenario: A user is notified when a corpse becomes complete
     Given 1 corpse
     And that corpse is almost full
+    And 1 user
     And the following user:
       | email    | dan@example.com |
       | password | pass            |

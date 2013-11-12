@@ -39,14 +39,14 @@ Given "that corpse is full" do
   end
 
   11.times do
-    @corpse.snippets.build(body: a)
+    @corpse.snippets.build(body: a, author_id: 1)
   end
 
   @corpse.save!
 end
 
 Given "that user has a friend" do
-  @user.friends << Fabricate(:friend, name: 'Laura', email: 'laura@example.com', password: 'pass' )
+  @user.friends << Fabricate(:friend, name: 'Laura', email: 'laura@example.com', password: 'pass', password_confirmation: 'pass' )
 end
 
 Given "I am viewing that user's profile" do
