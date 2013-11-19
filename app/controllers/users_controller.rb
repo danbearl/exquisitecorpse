@@ -43,7 +43,6 @@ class UsersController < ApplicationController
   def update_password
     if User.authenticate(current_user.email, params[:old_password])
       if params[:password] == params[:password_confirmation]
-        # current_user.update_password(params[:new_password])    
         current_user.update(user_params)
         redirect_to current_user.profile, notice: "Password successfully updated."
       else
