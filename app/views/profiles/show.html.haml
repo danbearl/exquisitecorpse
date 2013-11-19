@@ -5,6 +5,8 @@
   = link_to "Edit Profile", edit_profile_path(profile.id)
   %br
   = link_to "Edit Information", edit_user_path(current_user.id)
+  %br
+  = link_to "Change Password", change_password_path
 
 - if current_user
   - unless current_user.id == profile.user_id

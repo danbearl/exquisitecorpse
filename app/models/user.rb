@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  require 'bcrypt'
   has_secure_password
 
   has_many :comments, foreign_key: 'author_id'
@@ -36,5 +37,10 @@ class User < ActiveRecord::Base
     end
 
     return friends.join(", ")
+  end
+
+  def update_password(new_password)
+    @password = BCrypt::Password.create(new_password)
+    self.password_digest = @password
   end
 end

@@ -27,3 +27,24 @@ Feature: User
     Then I should see "Daniel"
     And I should see "Account information updated."
       
+  Scenario: A user changes her password
+    Given the following user:
+      | email                 | dan@example.com |
+      | name                  | Dan             |
+      | password              | pass            |
+      | password_confirmation | pass            |
+    And that user is logged in
+    And I am viewing that user's profile
+    When I follow "Change Password"
+    And I fill in the following:
+      | Old Password              | pass    |
+      | New Password              | newpass |
+      | New Password Confirmation | newpass |
+    And I press "Save Password"
+    And I follow "Log Out"
+    And I follow "Log In"
+    And I fill in the following:
+      | Email    | dan@example.com |
+      | Password | newpass         |
+    And I press "Log In"
+    Then I should see "Successfully logged in!"

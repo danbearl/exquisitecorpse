@@ -4,6 +4,8 @@ Exquisitecorpse::Application.routes.draw do
   get 'morgue' => 'corpses#morgue', as: 'morgue'
   get 'add_friend' => 'users#add_friend', as: 'add_friend'
   get 'remove_friend' => 'users#remove_friend', as: 'remove_friend'
+  get 'change_password' => 'users#change_password', as: 'change_password'
+  post 'change_password' => 'users#update_password', as: 'update_password'
 
   root to: 'pages#index'
 

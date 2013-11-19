@@ -40,6 +40,20 @@ class UsersController < ApplicationController
     redirect_to profile_path(friend.profile.id), notice: "Friend Removed"
   end
 
+  def update_password
+    if User.authenticate(current_user.email, params[:old_password])
+      if params[:password] == params[:password_confirmation]
+        # current_user.update_password(params[:new_password])    
+        current_user.update(user_params)
+        redirect_to current_user.profile, notice: "Password successfully updated."
+      else
+        render 'change_password', notice: "Password confirmation does not match new password."
+      end
+    else
+      render 'change_password', notice: "Incorrect password."
+    end
+  end
+
   private
 
   def user_params
