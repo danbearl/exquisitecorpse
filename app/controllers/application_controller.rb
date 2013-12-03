@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   end
   expose(:unread_notifications) { Notification.where('user_id = ? AND read = false', current_user.id) }
 
-
   protect_from_forgery with: :exception
   
   helper_method :current_user
