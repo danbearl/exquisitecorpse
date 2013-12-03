@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   before_filter :require_owner, only: [:edit, :update]
   expose(:profile)
-  expose(:snippets) { profile.user.snippets.paginate(page: params[:page]) }
+  expose(:snippets) { profile.user.snippets.paginate(page: params[:page]).order('created_at DESC') }
 
   def update
     if profile.update(profile_params)
