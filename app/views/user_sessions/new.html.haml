@@ -3,7 +3,7 @@
 %fieldset
   = form_tag user_sessions_path do
     .field
-      = label_tag :email
+      = label_tag :email, "E-Mail or Username"
       %br
       = text_field_tag :email, params[:email]
 

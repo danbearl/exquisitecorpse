@@ -1,4 +1,4 @@
-ruby '2.0.0'
+ruby '2.1.0'
 source 'https://rubygems.org'
 
 gem 'bcrypt-ruby'
@@ -23,11 +23,11 @@ end
 group :test do
   gem 'cucumber-rails', '~> 1.4.0'
   gem 'rspec-rails'
-  gem 'database_cleaner'
 end
 
 group :development, :test do
   gem 'pry-rails'
   gem 'fabrication'
   gem 'database_cleaner'
+  gem 'therubyracer'
 end
